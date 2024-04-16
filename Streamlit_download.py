@@ -3,7 +3,7 @@ import yfinance as yf
 import pandas as pd
 import pickle
 import os
-import winsound
+# import winsound
 
 st.set_page_config(layout="wide",page_title="Stock Data Application",initial_sidebar_state="expanded")
 st.title('Stock Data Application')
@@ -450,7 +450,7 @@ if __name__ == "__main__":
     Weekly_Index_Data=st.button('Weekly Index Data')    
     if Weekly_Index_Data:
         st.download_button("Weekly Index Data",data=pickle.dumps(get_index_data(interval='1wk',period='max')),file_name='WEEKLY_INDEX_DATA.pkl')
-    winsound.Beep(500, 1000)
+    st.success('Data Gathered')
 # def Store_Data(period='max',symbolsList=SYMBOL):
     
 #     try:
