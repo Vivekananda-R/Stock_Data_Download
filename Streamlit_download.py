@@ -449,7 +449,17 @@ if __name__ == "__main__":
         st.download_button("Download Weekly Data",data=pickle.dumps(getData(interval='1wk',period='max',symbolsList=SYMBOL)),file_name='WEEKLY_DATA.pkl')
     Daily_Data=st.button('Daily Data',key=3)
     if Daily_Data:
-        st.download_button("Download Daily Data",data=pickle.dumps(getData(interval='1d',period='max',symbolsList=SYMBOL)),file_name='DAILY_DATA.pkl')
+        DATA={}
+        len=len(SYMBOL)//4
+        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[:len])
+        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[len:len*2])
+        data3=getData(interval='1d',period='max',symbolsList=SYMBOL[(len*2):(len*3)])
+        data4=getData(interval='1d',period='max',symbolsList=SYMBOL[(len*3):])
+        DATA.update(data1)
+        DATA.update(data2)
+        DATA.update(data3)
+        DATA.update(data4)
+        st.download_button("Download Daily Data",data=pickle.dumps(DATA),file_name='DAILY_DATA.pkl')
                 
     Weekly_Index_Data=st.button('Weekly Index Data',key=4)   
     if Weekly_Index_Data:
@@ -458,7 +468,7 @@ if __name__ == "__main__":
     if Daily_Index_Data:
         st.download_button("Download Daily Index Data",data=pickle.dumps(get_index_data(interval='1d',period='max')),file_name='DAILY_INDEX_DATA.pkl')
     st.success('Data Gathered')
-# def Store_Data(period='max',symbolsList=SYMBOL):
+# def Store_Data(period='max',symbolsList=(SYMBOL[:(lenSYMBOL))//4)]:
     
 #     try:
 #         MONTHLY_DATA=getData(interval='1mo',period=period,symbolsList=symbolsList)
