@@ -450,11 +450,11 @@ if __name__ == "__main__":
     Daily_Data=st.button('Daily Data',key=3)
     if Daily_Data:
         DATA={}
-        len=len(SYMBOL)//4
-        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[:len])
-        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[len:len*2])
-        data3=getData(interval='1d',period='max',symbolsList=SYMBOL[(len*2):(len*3)])
-        data4=getData(interval='1d',period='max',symbolsList=SYMBOL[(len*3):])
+        l=len(SYMBOL)//4
+        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[:l])
+        data1=getData(interval='1d',period='max',symbolsList=SYMBOL[l:(l*2)])
+        data3=getData(interval='1d',period='max',symbolsList=SYMBOL[(l*2):(l*3)])
+        data4=getData(interval='1d',period='max',symbolsList=SYMBOL[(l*3):])
         DATA.update(data1)
         DATA.update(data2)
         DATA.update(data3)
