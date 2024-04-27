@@ -443,13 +443,20 @@ def get_index_data(interval='1wk',period='max'):
 if __name__ == "__main__":
     Monthly_Data=st.button('Monthly Data',key=1)
     if Monthly_Data:
-        st.download_button("Monthly Data",data=pickle.dumps(getData(interval='1mo',period='max',symbolsList=SYMBOL)),file_name='MONTHLY_DATA.pkl')
+        st.download_button("Download Monthly Data",data=pickle.dumps(getData(interval='1mo',period='max',symbolsList=SYMBOL)),file_name='MONTHLY_DATA.pkl')
     Weekly_Data=st.button('Weekly Data',key=2)
     if Weekly_Data:
-        st.download_button("Weekly Data",data=pickle.dumps(getData(interval='1wk',period='max',symbolsList=SYMBOL)),file_name='WEEKLY_DATA.pkl')
-    Weekly_Index_Data=st.button('Weekly Index Data')    
+        st.download_button("Download Weekly Data",data=pickle.dumps(getData(interval='1wk',period='max',symbolsList=SYMBOL)),file_name='WEEKLY_DATA.pkl')
+    Daily_Data=st.button('Daily Data',key=1)
+    if Daily_Data:
+        st.download_button("Download Daily Data",data=pickle.dumps(getData(interval='1d',period='max',symbolsList=SYMBOL)),file_name='DAILY_DATA.pkl')
+                
+    Weekly_Index_Data=st.button('Weekly Index Data')   
     if Weekly_Index_Data:
-        st.download_button("Weekly Index Data",data=pickle.dumps(get_index_data(interval='1wk',period='max')),file_name='WEEKLY_INDEX_DATA.pkl')
+        st.download_button("Download Weekly Index Data",data=pickle.dumps(get_index_data(interval='1wk',period='max')),file_name='WEEKLY_INDEX_DATA.pkl')
+    Daily_Index_Data=st.button('Daily Index Data')    
+    if Daily_Index_Data:
+        st.download_button("Download Daily Index Data",data=pickle.dumps(get_index_data(interval='1d',period='max')),file_name='DAILY_INDEX_DATA.pkl')
     st.success('Data Gathered')
 # def Store_Data(period='max',symbolsList=SYMBOL):
     
