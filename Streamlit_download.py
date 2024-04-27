@@ -447,14 +447,14 @@ if __name__ == "__main__":
     Weekly_Data=st.button('Weekly Data',key=2)
     if Weekly_Data:
         st.download_button("Download Weekly Data",data=pickle.dumps(getData(interval='1wk',period='max',symbolsList=SYMBOL)),file_name='WEEKLY_DATA.pkl')
-    Daily_Data=st.button('Daily Data',key=1)
+    Daily_Data=st.button('Daily Data',key=3)
     if Daily_Data:
         st.download_button("Download Daily Data",data=pickle.dumps(getData(interval='1d',period='max',symbolsList=SYMBOL)),file_name='DAILY_DATA.pkl')
                 
-    Weekly_Index_Data=st.button('Weekly Index Data')   
+    Weekly_Index_Data=st.button('Weekly Index Data',key=4)   
     if Weekly_Index_Data:
         st.download_button("Download Weekly Index Data",data=pickle.dumps(get_index_data(interval='1wk',period='max')),file_name='WEEKLY_INDEX_DATA.pkl')
-    Daily_Index_Data=st.button('Daily Index Data')    
+    Daily_Index_Data=st.button('Daily Index Data',key=5)    
     if Daily_Index_Data:
         st.download_button("Download Daily Index Data",data=pickle.dumps(get_index_data(interval='1d',period='max')),file_name='DAILY_INDEX_DATA.pkl')
     st.success('Data Gathered')
